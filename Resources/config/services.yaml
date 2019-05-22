@@ -1,0 +1,34 @@
+services:
+  ultipro.authentication:
+    class: Ultipro\Authentication
+    arguments:
+      - '%ultipro_sdk.username%'
+      - '%ultipro_sdk.password%'
+      - '%ultipro_sdk.customer_api_key%'
+
+  Ultipro\Authentication:
+    alias: 'ultipro.authentication'
+
+  ultipro.client:
+    class: Ultipro\UltiproClient
+    arguments:
+      - '@ultipro.authentication'
+      - '%ultipro_sdk.base_uri%'
+      - '%ultipro_sdk.options%'
+
+  Ultipro\Client:
+    alias: 'ultipro.client'
+
+  ultipro.client.configuration:
+    class: Ultipro\Configuration\ConfigurationClient
+    parent: ultipro.client
+
+  Ultipro\Configuration\ConfigurationClient:
+    alias: 'ultipro.client.configuration'
+
+  ultipro.client.personnel:
+    class: Ultipro\Personnel\PersonnelClient
+    parent: ultipro.client
+
+  Ultipro\Personnel\PersonnelClient:
+     alias: 'ultipro.client.personnel'

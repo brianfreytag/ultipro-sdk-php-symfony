@@ -1,0 +1,30 @@
+{
+    "name": "brianfreytag/ultipro-sdk-php-bundle",
+    "description": "A Symfony bundle for v1 of the Ultipro SDK for PHP (Unofficial) Library",
+    "type": "symfony-bundle",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Freytag",
+            "email": "me@brianfreytag.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "brianfreytag/ultipro-sdk-php": "^1.0",
+        "symfony/config": "~3.4|~4.0",
+        "symfony/dependency-injection": "~3.4|~4.0",
+        "symfony/http-kernel": "~3.4|~4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1",
+        "symfony/framework-bundle": "~3.4|~4.0",
+        "symfony/yaml": "~3.4|~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ultipro\\UltiproBundle\\": ""
+        }
+    }
+}

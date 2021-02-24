@@ -42,6 +42,7 @@ class UltiproExtension extends Extension
         $container->setParameter('ultipro_sdk.username', $config['username']);
         $container->setParameter('ultipro_sdk.password', $config['password']);
         $container->setParameter('ultipro_sdk.customer_api_key', $config['customer_api_key']);
+        $container->setParameter('ultipro_sdk.user_api_key', $config['user_api_key']);
         $container->setParameter('ultipro_sdk.base_uri', $config['base_uri']);
         $container->setParameter('ultipro_sdk.options', isset($config['options']) ? $config['options'] : []);
     }

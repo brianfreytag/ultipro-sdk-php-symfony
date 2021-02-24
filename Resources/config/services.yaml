@@ -5,9 +5,21 @@ services:
       - '%ultipro_sdk.username%'
       - '%ultipro_sdk.password%'
       - '%ultipro_sdk.customer_api_key%'
+      - '%ultipro_sdk.user_api_key%'
 
   Ultipro\Authentication:
     alias: 'ultipro.authentication'
+
+  ultipro.soap.client:
+    class: Ultipro\UltiproSoapClient
+    arguments:
+      - '@ultipro.authentication'
+      - 'https://service5.ultipro.com/services/BIDataService'
+      - '%ultipro_sdk.options%'
+      - '@logger'
+
+  Ultipro\UltiproSoapClient:
+    alias: 'ultipro.soap.client'
 
   ultipro.client:
     class: Ultipro\UltiproClient
@@ -32,3 +44,10 @@ services:
 
   Ultipro\Personnel\PersonnelClient:
      alias: 'ultipro.client.personnel'
+
+  ultipro.client.report:
+    class: Ultipro\ReportsAsService\ReportClient
+    parent: ultipro.soap.client
+
+  Ultipro\ReportsAsService\ReportClient:
+    alias: 'ultipro.client.report'
